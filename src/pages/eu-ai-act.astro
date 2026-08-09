@@ -1,0 +1,208 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+
+// Dates from Regulation (EU) 2024/1689. Reviewed against the published
+// staggered application schedule — see the note at the foot of this page.
+const timeline = [
+  {
+    date: '1 Aug 2024',
+    label: 'Entered into force',
+    body: 'The Regulation is law across all Member States. No national transposition needed.',
+  },
+  {
+    date: '2 Feb 2025',
+    label: 'AI literacy and prohibited practices',
+    body: 'Article 4 (AI literacy of staff) and Article 5 (prohibited practices) became applicable. Article 4 applies to providers and deployers alike, with no size exemption.',
+  },
+  {
+    date: '2 Aug 2025',
+    label: 'General-purpose AI models',
+    body: 'Obligations for providers of general-purpose AI models, plus the governance and penalty framework.',
+  },
+  {
+    date: '2 Aug 2026',
+    label: 'The main body of obligations',
+    body: 'High-risk classification under Annex III, transparency duties under Article 50, and the bulk of the Regulation became applicable.',
+    now: true,
+  },
+  {
+    date: '2 Aug 2027',
+    label: 'High-risk as a product safety component',
+    body: 'Extended transition for AI systems that are safety components of products already covered by EU harmonisation legislation.',
+  },
+];
+
+const questions = [
+  {
+    q: 'Are you a provider or a deployer?',
+    a: 'The obligations differ substantially. Most SMEs are deployers of somebody else’s system — but the moment you put your own name on a system, or materially modify one, you can become a provider with the heavier set of duties.',
+  },
+  {
+    q: 'Does anything you run fall under Annex III?',
+    a: 'Recruitment and CV screening, task allocation and performance evaluation of workers, creditworthiness assessment, and access to essential services all sit in the high-risk list. Automation projects reach these areas more often than people expect.',
+  },
+  {
+    q: 'Can your staff be shown to have sufficient AI literacy?',
+    a: 'Article 4 is an obligation on the organisation, not on the individual. In practice it means documented, role-appropriate training — and being able to produce the record.',
+  },
+  {
+    q: 'Do your customer-facing systems disclose that they are AI?',
+    a: 'Article 50 requires people to be informed when they interact with an AI system, and requires synthetic content to be marked. This applies to the chatbot on your own website.',
+  },
+];
+---
+
+<Base
+  title="EU AI Act"
+  description="What the EU AI Act requires of small and mid-sized companies that use or provide AI systems — and how Loomwise helps you meet it."
+>
+  <section class="section weave">
+    <div class="wrap">
+      <p class="eyebrow">Compliance</p>
+      <h1>The EU AI Act is not a future problem</h1>
+      <p class="lede" style="margin-top: 1.25rem;">
+        The main body of Regulation (EU) 2024/1689 became applicable on
+        2 August 2026. The AI literacy duty has applied since February 2025.
+        There is no small-company exemption from either.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <h2>The schedule</h2>
+      <ol class="timeline">
+        {
+          timeline.map((t) => (
+            <li class={t.now ? 'is-now' : undefined}>
+              <p class="t-date">{t.date}</p>
+              <div>
+                <h3>{t.label}</h3>
+                <p class="muted">{t.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--sunk">
+    <div class="wrap">
+      <p class="eyebrow">Where companies get caught</p>
+      <h2>Four questions worth answering now</h2>
+      <div class="grid grid--2" style="margin-top: 2.5rem;">
+        {
+          questions.map((item) => (
+            <article class="card">
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">What we offer</p>
+      <h2>Two ways in</h2>
+      <div class="grid grid--2" style="margin-top: 2.5rem;">
+        <article class="card card--accent">
+          <h3>AI literacy training</h3>
+          <p>
+            A half-day session for your team, tailored to the systems you
+            actually use, with the attendance record and materials you need to
+            evidence Article 4 compliance. Delivered on site or remotely, in
+            English, German or Polish.
+          </p>
+        </article>
+        <article class="card card--accent">
+          <h3>AI inventory and risk classification</h3>
+          <p>
+            We catalogue every AI system in use across your organisation,
+            classify each one under the Regulation, identify which obligations
+            attach, and hand you the register in a form you can maintain
+            yourself.
+          </p>
+        </article>
+      </div>
+
+      <p class="disclaimer">
+        This page summarises publicly available information about Regulation
+        (EU) 2024/1689 and is not legal advice. Loomwise is not a law firm.
+        For a binding assessment of your obligations, consult a qualified
+        lawyer — we work alongside yours.
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    heading="Find out where you stand"
+    body="Most companies discover they are already in scope for at least one obligation. Better to know."
+  />
+</Base>
+
+<style>
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0 0;
+    display: grid;
+    gap: 0;
+    max-width: 60rem;
+  }
+
+  .timeline li {
+    display: grid;
+    gap: 0.35rem 2rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (min-width: 44rem) {
+    .timeline li {
+      grid-template-columns: 9rem 1fr;
+    }
+  }
+
+  .t-date {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    padding-top: 0.15rem;
+  }
+
+  .timeline h3 {
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline .is-now {
+    border-left: 3px solid var(--copper-bright);
+    padding-left: 1.25rem;
+    background: color-mix(in oklab, var(--copper-bright) 6%, transparent);
+  }
+
+  @media (min-width: 44rem) {
+    .timeline .is-now {
+      margin-left: -1.25rem;
+      grid-template-columns: 9rem 1fr;
+    }
+  }
+
+  .timeline .is-now .t-date {
+    color: var(--copper);
+    font-weight: 600;
+  }
+
+  .disclaimer {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    max-width: 68ch;
+  }
+</style>

@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+
+const services = [
+  {
+    id: 'audit',
+    name: 'Process audit',
+    duration: '2 weeks',
+    summary:
+      'A measured picture of where administrative hours go, and a ranked list of what is worth changing.',
+    detail: [
+      'We spend time with the people who actually do the work — not only with management — and follow a handful of real jobs end to end: from first enquiry to final invoice.',
+      'The deliverable is a written report: every repetitive step we found, how many hours per month it costs, what automating it would take, and what it would return. Ranked, with the ones we advise against automating marked as such.',
+    ],
+    outcome:
+      'You own the report whether or not you continue with us. It is written so another supplier could act on it.',
+  },
+  {
+    id: 'documents',
+    name: 'Document and email automation',
+    duration: '4–8 weeks',
+    summary:
+      'Incoming paperwork read, classified and routed into the systems you already run.',
+    detail: [
+      'Enquiries, orders, delivery notes, supplier invoices and scanned documents are read, the relevant fields extracted, and the result written into your existing tools. Where confidence is low, the item is queued for a human instead of guessed.',
+      'We build against your current systems. Replacing your ERP is not part of the offer, and we will tell you plainly when a problem is a process problem rather than a software one.',
+    ],
+    outcome:
+      'Typical result: the re-typing disappears, and exceptions become visible instead of silently absorbed.',
+  },
+  {
+    id: 'knowledge',
+    name: 'Internal knowledge assistants',
+    duration: '4–6 weeks',
+    summary:
+      'A searchable answer layer over your own manuals, price lists, past quotes and project history.',
+    detail: [
+      'Answers cite the document and section they came from, so anyone can verify them. Where the source material does not contain an answer, the system says so rather than inventing one — this is a design requirement, not a nice-to-have.',
+      'Access follows your existing permissions. Nobody sees a document through the assistant that they could not open directly.',
+    ],
+    outcome:
+      'Onboarding stops depending on the availability of the two people who remember everything.',
+  },
+  {
+    id: 'integration',
+    name: 'Systems integration',
+    duration: 'scoped per project',
+    summary:
+      'Connecting the tools that currently only exchange data through a person copying it.',
+    detail: [
+      'ERP, accounting, scheduling, CRM, mailbox, e-invoicing. We build the connections, the error handling and the monitoring, and we document the whole thing.',
+      'Built on your own infrastructure or on EU-hosted services, with the data flows written down so a later audit is a document lookup rather than an investigation.',
+    ],
+    outcome:
+      'One number entered once. Failures raise an alert instead of surfacing at month end.',
+  },
+];
+---
+
+<Base
+  title="Services"
+  description="Process audit, document and email automation, internal knowledge assistants and systems integration for European SMEs and skilled trades."
+>
+  <section class="section weave">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h1>What we build</h1>
+      <p class="lede" style="margin-top: 1.25rem;">
+        Four services. Each one is scoped to a fixed deliverable with a fixed
+        price, because open-ended consulting retainers are how automation
+        projects quietly become expensive.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap service-list">
+      {
+        services.map((s) => (
+          <article class="service" id={s.id}>
+            <div class="service-head">
+              <h2>{s.name}</h2>
+              <p class="duration">{s.duration}</p>
+            </div>
+            <div class="service-body">
+              <p class="service-summary">{s.summary}</p>
+              {s.detail.map((d) => (
+                <p class="muted">{d}</p>
+              ))}
+              <p class="outcome">{s.outcome}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section--sunk">
+    <div class="wrap">
+      <p class="eyebrow">Pricing</p>
+      <h2>How we quote</h2>
+      <div class="stack" style="margin-top: 1.25rem; max-width: 68ch;">
+        <p class="muted">
+          The audit is a fixed fee. Build projects are quoted as a fixed price
+          against a written scope once the audit has established what the work
+          actually is — we do not quote automation work before we have seen the
+          process, and any supplier who does is guessing.
+        </p>
+        <p class="muted">
+          Ongoing maintenance is optional and priced separately. If you would
+          rather run the system with your own team, the handover includes what
+          is needed to do that.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    heading="Start with the audit"
+    body="Two weeks, a fixed fee, and a written report you keep either way."
+  />
+</Base>
+
+<style>
+  .service-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .service {
+    display: grid;
+    gap: 1rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .service:first-child {
+    border-top: none;
+    padding-top: 1rem;
+  }
+
+  @media (min-width: 52rem) {
+    .service {
+      grid-template-columns: 16rem 1fr;
+      gap: 3rem;
+    }
+    .service-head {
+      position: sticky;
+      top: 6rem;
+      align-self: start;
+    }
+  }
+
+  .service-head h2 {
+    font-size: 1.5rem;
+  }
+
+  .duration {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-top: 0.5rem;
+  }
+
+  .service-body {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .service-summary {
+    font-size: 1.075rem;
+    color: var(--ink);
+  }
+
+  .outcome {
+    border-left: 3px solid var(--copper-bright);
+    padding-left: 1rem;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-top: 0.35rem;
+  }
+</style>

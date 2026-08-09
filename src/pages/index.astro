@@ -1,0 +1,253 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const problems = [
+  {
+    title: 'Quoting eats the billable day',
+    body: 'Every enquiry is retyped from an email into a spreadsheet, then into the quoting tool, then into the calendar. The work is not hard. It is just constant.',
+  },
+  {
+    title: 'The knowledge sits in two people',
+    body: 'How a job is priced, which supplier to call, what went wrong last time — none of it is written down anywhere a new hire could find it.',
+  },
+  {
+    title: 'The paperwork keeps growing',
+    body: 'E-invoicing, documentation duties, audit trails. Obligations arrive faster than the admin capacity to absorb them.',
+  },
+];
+
+const services = [
+  {
+    title: 'Process audit',
+    body: 'Two weeks, on site and in your systems. We map where hours actually go and return a ranked list of what is worth automating — with estimated effort and payback for each.',
+  },
+  {
+    title: 'Document and email automation',
+    body: 'Incoming enquiries, orders, delivery notes and invoices read, classified and routed into the systems you already run. No re-typing.',
+  },
+  {
+    title: 'Internal knowledge assistants',
+    body: 'A searchable, cited answer layer over your own manuals, price lists, past quotes and project history. Answers that link back to the source document.',
+  },
+  {
+    title: 'Systems integration',
+    body: 'Connecting the ERP, the accounting package, the scheduling tool and the mailbox that currently only talk to each other through a person.',
+  },
+];
+---
+
+<Base title={site.name} description={site.description}>
+  <!-- Hero ---------------------------------------------------------------- -->
+  <section class="section hero weave">
+    <div class="wrap">
+      <p class="eyebrow">AI process automation · European Union</p>
+      <h1>Automate the paperwork.<br />Keep the craft.</h1>
+      <p class="lede hero-lede">
+        Loomwise builds process automation for European small and mid-sized
+        businesses and skilled trades. Quoting, scheduling, documentation,
+        compliance — the administrative work around the job, handled by
+        software, so your people can do the job.
+      </p>
+
+      <div class="punchcard" aria-hidden="true">
+        <span data-on></span><span></span><span data-on></span><span data-on></span
+        ><span></span><span data-on></span><span></span><span></span
+        ><span data-on></span><span data-on></span><span></span><span data-on></span>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact/">Talk to us</a>
+        <a class="btn btn--ghost" href="/services/">How we work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem ------------------------------------------------------------- -->
+  <section class="section section--sunk">
+    <div class="wrap">
+      <p class="eyebrow">The situation</p>
+      <h2>Most automation projects are sold to enterprises</h2>
+      <p class="lede" style="margin-top: 0.75rem;">
+        A company of fifteen to five hundred people has the same repetitive
+        administrative load, a fraction of the budget, and nobody whose job it
+        is to fix it. That is the gap we work in.
+      </p>
+
+      <div class="grid grid--3" style="margin-top: 2.5rem;">
+        {
+          problems.map((p) => (
+            <article class="card card--accent">
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Services ------------------------------------------------------------ -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">What we do</p>
+      <h2>Four things, done properly</h2>
+
+      <div class="grid grid--2" style="margin-top: 2.5rem;">
+        {
+          services.map((s) => (
+            <article class="card">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <p style="margin-top: 2rem;">
+        <a href="/services/">Full description of each service and how engagements run →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Method -------------------------------------------------------------- -->
+  <section class="section section--sunk">
+    <div class="wrap">
+      <p class="eyebrow">How an engagement runs</p>
+      <h2>Weeks, not quarters</h2>
+
+      <ol class="steps" style="margin-top: 2.5rem;">
+        <li>
+          <h3>Audit</h3>
+          <p>
+            Two weeks. We sit with the people doing the work and measure where
+            the hours go. You get a ranked shortlist with effort and payback per
+            item — useful even if you stop here.
+          </p>
+        </li>
+        <li>
+          <h3>Build</h3>
+          <p>
+            Four to eight weeks on the highest-value item. Running in production
+            against real work, not a demo environment. Fixed scope, fixed price.
+          </p>
+        </li>
+        <li>
+          <h3>Hand over</h3>
+          <p>
+            Documentation, training for your team, and the choice to run it
+            yourself or have us maintain it. No lock-in built into the contract.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Sovereignty --------------------------------------------------------- -->
+  <section class="section">
+    <div class="wrap sovereignty">
+      <div>
+        <p class="eyebrow">Why European matters here</p>
+        <h2>Built for the rules you actually operate under</h2>
+        <div class="stack" style="margin-top: 1.25rem;">
+          <p class="muted">
+            Every system we build is designed against the GDPR and the EU AI Act
+            from the first architecture decision, not retrofitted before the
+            audit. Where personal data is involved, we default to processing
+            inside the EU and document the chain.
+          </p>
+          <p class="muted">
+            You get the data processing agreement, the records of processing and
+            the technical documentation as part of the deliverable — because
+            they are what your own auditors and your larger customers will ask
+            for.
+          </p>
+        </div>
+      </div>
+      <aside class="card sovereignty-card">
+        <h3>Included as standard</h3>
+        <ul>
+          <li>Data processing agreement (Art. 28 GDPR)</li>
+          <li>Sub-processor register, kept current</li>
+          <li>EU data residency where personal data is processed</li>
+          <li>AI system documentation per the EU AI Act</li>
+          <li>Written exit plan and data export</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- AI Act wedge -------------------------------------------------------- -->
+  <section class="section section--sunk">
+    <div class="wrap ai-act-band">
+      <div>
+        <p class="eyebrow">Obligation, not option</p>
+        <h2>The EU AI Act applies to you already</h2>
+        <p class="lede" style="margin-top: 0.75rem;">
+          Article 4 requires every organisation that provides or uses AI systems
+          to ensure its staff have sufficient AI literacy. That duty has applied
+          since February 2025, and it applies regardless of company size.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/eu-ai-act/">What this means for you</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(4rem, 9vw, 7.5rem) clamp(3rem, 6vw, 5rem);
+  }
+
+  .hero-lede {
+    margin-top: 1.5rem;
+  }
+
+  .sovereignty {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 52rem) {
+    .sovereignty {
+      grid-template-columns: 1.3fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+  }
+
+  .sovereignty-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .sovereignty-card li {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    padding-left: 1.4rem;
+    position: relative;
+  }
+
+  .sovereignty-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--copper-bright);
+  }
+
+  .ai-act-band > div {
+    max-width: 46rem;
+  }
+</style>

@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Privacy"
+  description="How Loomwise handles personal data on this website. No cookies, no tracking, no third-party requests."
+>
+  <section class="section weave">
+    <div class="wrap">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy notice</h1>
+      <p class="lede" style="margin-top: 1.25rem;">
+        This website sets no cookies, runs no analytics and loads nothing from a
+        third party. The sections below describe the only processing that does
+        take place.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap prose">
+      <h2>Controller</h2>
+      <p>
+        {site.legalName}, {site.address.street}, {site.address.postalCode}&nbsp;{
+          site.address.city
+        }, {site.address.country}. Email:
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+      <p>
+        We have not appointed a data protection officer. Article 37 GDPR does not
+        require one for an organisation of our size and activity.
+      </p>
+
+      <h2>What this site does not do</h2>
+      <ul>
+        <li>No cookies of any kind, so no consent banner is required.</li>
+        <li>No analytics, tag managers, pixels or session recording.</li>
+        <li>
+          No fonts, scripts, stylesheets or images loaded from external domains.
+          Everything is served from this domain.
+        </li>
+        <li>No contact form, so no form data is processed by a third party.</li>
+        <li>No profiling and no automated decision-making.</li>
+      </ul>
+
+      <h2>Server log data</h2>
+      <p>
+        This site is hosted on {site.privacy.hostingProvider}. When you open a
+        page, the hosting provider’s servers process technical connection data,
+        including your IP address, the requested URL, the referring page, the
+        time of the request and your browser’s user agent string. This is
+        technically necessary to deliver the page and to maintain the security
+        and stability of the service.
+      </p>
+      <dl>
+        <dt>Legal basis</dt>
+        <dd>Article 6(1)(f) GDPR — our legitimate interest in providing a functioning, secure website.</dd>
+
+        <dt>Recipient</dt>
+        <dd>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</dd>
+
+        <dt>Third-country transfer</dt>
+        <dd>
+          Processing takes place partly in the United States. GitHub, Inc. is
+          part of Microsoft Corporation, which is certified under the EU–U.S.
+          Data Privacy Framework; transfers are additionally covered by the
+          Standard Contractual Clauses in GitHub’s data protection agreement.
+        </dd>
+
+        <dt>Retention</dt>
+        <dd>
+          Log retention is determined by the hosting provider. We do not access,
+          export or evaluate these logs.
+        </dd>
+      </dl>
+
+      <h2>Contacting us by email</h2>
+      <p>
+        If you write to us, we process the content of your message together with
+        your email address, name and any other details you choose to include, in
+        order to answer you. We do not use these details for marketing without
+        your separate consent.
+      </p>
+      <dl>
+        <dt>Legal basis</dt>
+        <dd>
+          Article 6(1)(b) GDPR where your enquiry relates to a contract or its
+          initiation; otherwise Article 6(1)(f) GDPR, our legitimate interest in
+          answering enquiries addressed to us.
+        </dd>
+
+        <dt>Retention</dt>
+        <dd>
+          Until your enquiry is resolved, and thereafter for as long as statutory
+          retention obligations require. Correspondence with no ongoing business
+          relevance is deleted.
+        </dd>
+      </dl>
+
+      <h2>Your rights</h2>
+      <p>Under the GDPR you have the right to:</p>
+      <ul>
+        <li>access your personal data (Article 15);</li>
+        <li>rectification of inaccurate data (Article 16);</li>
+        <li>erasure (Article 17);</li>
+        <li>restriction of processing (Article 18);</li>
+        <li>data portability (Article 20);</li>
+        <li>
+          object to processing based on legitimate interests (Article 21);
+        </li>
+        <li>
+          withdraw consent at any time, where processing is based on consent,
+          without affecting the lawfulness of processing before withdrawal.
+        </li>
+      </ul>
+      <p>
+        To exercise any of these, write to
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Right to complain</h2>
+      <p>
+        You may lodge a complaint with a supervisory authority. In Poland this is
+        the President of the Personal Data Protection Office (Prezes Urzędu
+        Ochrony Danych Osobowych), ul. Stawki 2, 00-193 Warszawa. You may also
+        complain to the authority in your own country of residence.
+      </p>
+
+      <h2>Is providing data required?</h2>
+      <p>
+        No. You can browse this site without providing any personal data beyond
+        the technical connection data described above, which is unavoidable for
+        any website. Contacting us is voluntary.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We update this notice when the site changes. Last updated:
+        {' '}{site.privacy.lastUpdated}.
+      </p>
+    </div>
+  </section>
+</Base>

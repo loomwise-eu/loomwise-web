@@ -1,0 +1,52 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  heading?: string;
+  body?: string;
+}
+
+const {
+  heading = 'Start with one process',
+  body = 'A short call is enough to tell whether there is something worth automating. If there is not, we will say so.',
+} = Astro.props;
+
+const primaryHref = site.bookingUrl || `mailto:${site.email}`;
+const primaryLabel = site.bookingUrl ? 'Book a 30-minute call' : 'Email us';
+---
+
+<section class="section cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>{heading}</h2>
+      <p class="lede" style="margin-top: 0.75rem;">{body}</p>
+    </div>
+    <div class="btn-row cta-actions">
+      <a class="btn btn--primary" href={primaryHref}>{primaryLabel}</a>
+      <a class="btn btn--ghost" href="/services/">See what we do</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background: var(--paper-sunk);
+    border-block: 1px solid var(--rule);
+  }
+
+  .cta-inner {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 52rem) {
+    .cta-inner {
+      grid-template-columns: 1.4fr auto;
+      gap: 3rem;
+    }
+    .cta-actions {
+      margin-top: 0;
+    }
+  }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loomwise.eu/sitemap-index.xml

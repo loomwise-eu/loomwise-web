@@ -1,0 +1,132 @@
+---
+import { site, registryValue } from '../data/site';
+
+const year = 2026; // Build-time constant; bump on the next content pass.
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">{site.shortLegalName}</p>
+      <p class="small muted">
+        {site.address.street}<br />
+        {site.address.postalCode}&nbsp;{site.address.city}, {site.address.country}
+      </p>
+      <p class="small muted footer-reg">
+        KRS {registryValue(site.registry.krs)} · NIP {registryValue(site.registry.nip)}
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/eu-ai-act/">EU AI Act</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/imprint/">Imprint</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          {site.phone && <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>}
+          {site.linkedin && <li><a href={site.linkedin} rel="me noopener">LinkedIn</a></li>}
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap footer-base">
+    <p class="small muted">© {year} {site.shortLegalName}</p>
+    <p class="small muted">
+      No cookies. No trackers. No third-party requests.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    background: var(--paper-sunk);
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 2.5rem;
+    padding-block: 3rem 2rem;
+  }
+
+  @media (min-width: 48rem) {
+    .footer-inner {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+    }
+  }
+
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-reg {
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-nav h2 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--copper);
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .footer-nav a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    font-size: 0.925rem;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-nav a:hover {
+    color: var(--copper);
+  }
+
+  .footer-base {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-block: 1.25rem;
+  }
+</style>

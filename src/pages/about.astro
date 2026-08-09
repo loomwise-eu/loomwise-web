@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import { site, isTodo } from '../data/site';
+
+const people = site.people.filter((p) => !isTodo(p.name));
+---
+
+<Base
+  title="About"
+  description="Loomwise is a European company building process automation for small and mid-sized businesses and skilled trades."
+>
+  <section class="section weave">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>Why Loomwise</h1>
+      <p class="lede" style="margin-top: 1.25rem;">
+        In 1804 Joseph-Marie Jacquard put a chain of punched cards on a loom.
+        The pattern stopped living in the weaver’s memory and became something
+        you could write down, hand to someone else, and run again tomorrow.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap prose">
+      <p>
+        It was the first programmable machine. The punched card went from the
+        loom to the census, to the tabulator, to the computer — the whole line
+        starts in a workshop, on a tool used by a trade.
+      </p>
+      <p>
+        That is the idea we work from. Automation at its best does not replace
+        the craft; it writes down the repetitive part so the skilled part gets
+        the time. The weaver still decides what to make.
+      </p>
+
+      <h2>What we believe</h2>
+      <p>
+        <strong>Small companies deserve real engineering.</strong> The
+        automation industry sells to enterprises because that is where the
+        budgets are. A fifty-person manufacturer has the same repetitive
+        administrative load and none of the internal capacity to fix it. That is
+        a solvable problem, not a market segment to skip.
+      </p>
+      <p>
+        <strong>Say when something is not worth automating.</strong> Some
+        processes should be simplified, not automated, and some should be left
+        alone. A supplier who never says that is selling hours rather than
+        outcomes.
+      </p>
+      <p>
+        <strong>Compliance is part of the build, not a document at the end.</strong>
+        The GDPR and the EU AI Act shape architecture decisions. Retrofitting
+        them costs more than designing for them.
+      </p>
+      <p>
+        <strong>No lock-in.</strong> Every engagement ends with documentation
+        good enough for someone else to take over. If the only reason you stay
+        is that leaving is painful, we have built the wrong thing.
+      </p>
+    </div>
+  </section>
+
+  {
+    people.length > 0 && (
+      <section class="section section--sunk">
+        <div class="wrap">
+          <p class="eyebrow">People</p>
+          <h2>Who you will be working with</h2>
+          <div class="grid grid--2" style="margin-top: 2.5rem;">
+            {people.map((p) => (
+              <article class="card">
+                <h3>{p.name}</h3>
+                <p class="role">{p.role}</p>
+                <p>{p.bio}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>The company</h2>
+      <p>
+        {site.legalName} is a Polish limited liability company, registered in
+        Poland and operating across the European Union. Working from Poland with
+        EU-wide delivery is a deliberate choice: it keeps our cost base
+        realistic for the size of company we serve, and it keeps every
+        engagement inside a single legal and data-protection regime.
+      </p>
+      <p>
+        Full registration details are on the <a href="/imprint/">imprint page</a>.
+      </p>
+    </div>
+  </section>
+
+  <CTA />
+</Base>
+
+<style>
+  .role {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 0.75rem;
+  }
+</style>

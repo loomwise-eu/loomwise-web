@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, registryValue } from '../data/site';
+---
+
+<Base
+  title="Imprint"
+  description="Legal and registration details for Loomwise sp. z o.o."
+>
+  <section class="section weave">
+    <div class="wrap">
+      <p class="eyebrow">Legal</p>
+      <h1>Imprint</h1>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap prose">
+      <h2>Service provider</h2>
+      <dl>
+        <dt>Company</dt>
+        <dd>{site.legalName}</dd>
+
+        <dt>Trading as</dt>
+        <dd>{site.shortLegalName}</dd>
+
+        <dt>Registered office</dt>
+        <dd>
+          {site.address.street}<br />
+          {site.address.postalCode}&nbsp;{site.address.city}<br />
+          {site.address.country}
+        </dd>
+
+        <dt>Email</dt>
+        <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+
+        {
+          site.phone && (
+            <>
+              <dt>Phone</dt>
+              <dd>{site.phone}</dd>
+            </>
+          )
+        }
+      </dl>
+
+      <h2>Registration</h2>
+      <dl>
+        <dt>KRS</dt>
+        <dd>{registryValue(site.registry.krs)}</dd>
+
+        <dt>Registry court</dt>
+        <dd>{registryValue(site.registry.court)}</dd>
+
+        <dt>NIP (VAT ID)</dt>
+        <dd>{registryValue(site.registry.nip)}</dd>
+
+        <dt>REGON</dt>
+        <dd>{registryValue(site.registry.regon)}</dd>
+
+        <dt>Share capital</dt>
+        <dd>{site.registry.shareCapital}</dd>
+      </dl>
+
+      <h2>Represented by</h2>
+      <dl>
+        <dt>{site.management.role}</dt>
+        <dd>{site.management.name}</dd>
+      </dl>
+
+      <h2>Responsible for content</h2>
+      <p>
+        {site.management.name}, at the registered office address above.
+      </p>
+
+      <h2>Online dispute resolution</h2>
+      <p>
+        We are neither obliged nor willing to participate in dispute resolution
+        proceedings before a consumer arbitration board. Our services are
+        offered to businesses only.
+      </p>
+
+      <h2>Liability for links</h2>
+      <p>
+        This site contains no links to external websites at present. Should any
+        be added, their content remains the responsibility of the respective
+        operator. We check linked pages for legal violations at the time of
+        linking; ongoing monitoring without concrete evidence of an infringement
+        is not reasonable.
+      </p>
+
+      <h2>Copyright</h2>
+      <p>
+        The content of this site is the property of {site.shortLegalName} unless
+        stated otherwise. Reproduction, adaptation or distribution beyond the
+        limits of applicable copyright law requires our written consent.
+      </p>
+    </div>
+  </section>
+</Base>
