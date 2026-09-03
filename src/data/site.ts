@@ -24,73 +24,54 @@ export const site = {
     'Loomwise builds AI-driven process automation for European SMEs and skilled trades. Quoting, scheduling, documentation and compliance — automated, EU-hosted, live in weeks.',
 
   // ---------------------------------------------------------------- contact
-  // TODO: create the mailbox before publishing. A domain-based address is
-  // expected by business buyers; a gmail address costs you deals.
   email: 'hello@loomwise.eu',
 
-  // TODO (optional): leave as empty string to hide the phone number everywhere.
   phone: '',
 
-  // TODO (optional): a booking link renders a prominent "Book a call" button.
-  // Cal.com is the usual EU-friendly choice; leave empty to fall back to email.
   bookingUrl: '',
 
-  // TODO (optional): leave empty to hide.
   linkedin: '',
 
   // ---------------------------------------------------------------- address
-  // TODO: the virtual office address, exactly as it will appear in the KRS.
   address: {
-    street: 'TODO — street and number',
-    postalCode: 'TODO — e.g. 00-001',
-    city: 'TODO — e.g. Warszawa',
+    street: 'ul. Wita Stwosza 48 lokal 105',
+    postalCode: '02-661',
+    city: 'Warszawa',
     country: 'Poland',
   },
 
   // ------------------------------------------------------------ registry data
-  // TODO: available after KRS registration. Leave as null until then — the
-  // imprint automatically shows "in registration" for any null value.
   registry: {
-    krs: null as string | null,
-    nip: null as string | null,
-    regon: null as string | null,
-    // TODO: the registry court, e.g.
-    // "District Court for the Capital City of Warsaw, XII Commercial Division"
-    court: null as string | null,
-    shareCapital: 'PLN 100,000 (fully paid up)',
+    krs: '0001261976',
+    nip: '5214177431',
+    regon: '54556438000000',
+    court:
+      'District Court for the Capital City of Warsaw in Warsaw, 13th Commercial Division of the National Court Register',
+    shareCapital: 'PLN 5,000',
   },
 
   // ------------------------------------------------------------- management
-  // TODO: full name of the sole board member, as it will appear in the KRS.
   management: {
-    name: 'TODO — full name',
+    name: 'Monika Dwyko',
     role: 'Prezes Zarządu (Managing Director)',
   },
 
   // ------------------------------------------------------------------ people
-  // TODO: shown on /about. Delete an entry to hide that person entirely.
   // Keep bios factual — no invented credentials, buyers do check.
   people: [
     {
-      name: 'TODO — full name',
+      name: 'Monika Dwyko',
       role: 'Managing Director',
-      bio: 'TODO — two or three sentences. What you did before, and why you started this.',
-    },
-    {
-      name: 'TODO — full name (or delete this entry)',
-      role: 'TODO — role',
-      bio: 'TODO — two or three sentences.',
+      bio: 'IT leadership background turned into practical AI execution for European SMEs. Monika leads Loomwise with a focus on streamlining back-office operations for trades and growing businesses.',
     },
   ],
 
   // ----------------------------------------------------------------- privacy
   privacy: {
-    // TODO: confirm before publishing. If you later add a contact form,
     // add the provider here so the privacy policy stays accurate.
     formProvider: null as string | null,
     hostingProvider: 'GitHub Pages (GitHub, Inc., USA)',
-    // TODO: date you publish the site, format YYYY-MM-DD.
-    lastUpdated: 'TODO — YYYY-MM-DD',
+    lastUpdated: '2026-09-03',
   },
 } as const;
 
