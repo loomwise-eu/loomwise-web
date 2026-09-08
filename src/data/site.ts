@@ -52,7 +52,7 @@ export const site = {
 
   // ------------------------------------------------------------- management
   management: {
-    name: 'Monika Dwyko',
+    name: 'Monika Dydko',
     role: 'Prezes Zarządu (Managing Director)',
   },
 
@@ -60,7 +60,7 @@ export const site = {
   // Keep bios factual — no invented credentials, buyers do check.
   people: [
     {
-      name: 'Monika Dwyko',
+      name: 'Monika Dydko',
       role: 'Managing Director',
       bio: 'IT leadership background turned into practical AI execution for European SMEs. Monika leads Loomwise with a focus on streamlining back-office operations for trades and growing businesses.',
     },
