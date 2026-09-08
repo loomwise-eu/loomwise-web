@@ -52,7 +52,7 @@ export const site = {
 
   // ------------------------------------------------------------- management
   management: {
-    name: 'Monika Dydko',
+    name: 'Monika Krystyna Dydko',
     role: 'Prezes Zarządu (Managing Director)',
   },
 
